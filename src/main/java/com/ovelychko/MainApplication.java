@@ -14,12 +14,12 @@ public class MainApplication implements RequestHandler<TelegramUserData, String>
 
     @Override
     public String handleRequest(TelegramUserData data, Context context) {
-        LambdaLogger logger = context.getLogger();
-        logger.log("Incoming event: " + data);
+//        LambdaLogger logger = context.getLogger();
+//        logger.log("Incoming event: " + data);
 
         if (data != null) {
             dynamoDBMapper.save(data);
-            logger.log("Item '" + data.getId() + "' added");
+//            logger.log("Item '" + data.getId() + "' added");
             return "Item '" + data.getId() + "' added";
         } else {
             return "Error in adding user";
